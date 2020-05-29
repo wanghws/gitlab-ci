@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project
+  labels:
+    app: project
+  namespace: production
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: project
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: project
+    spec:
+      imagePullSecrets:
+        - name: registry-secret
+      containers:
+        - name: project
+          image: 'registry.youdockerserver.com/namespace/project:IMAGE_TAG'
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP
