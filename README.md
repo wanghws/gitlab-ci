@@ -11,10 +11,9 @@
 
 ## 步骤
 
-1.  启动Eureka
-2.  启动Gateway
-3.  启动Passport OAuth2验证服务
-4.  启动用户账户服务 集成了基本权限5张表
-5.  启动前台VUE页面 npm run dev
-6.  接口文档访问 http://localhost:8410/doc.html
+1.  Java Maven Project
+2.  Gitlab
+3.  Gitlab-CI
+4.  Gitlab-Runner
+5.  Kubernetes
 
